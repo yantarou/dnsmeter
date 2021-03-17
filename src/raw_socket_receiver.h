@@ -26,22 +26,6 @@
 #define __dnsmeter_raw_socket_receiver_h
 
 class RawSocketReceiver {
-private:
-#if defined(__GXX_EXPERIMENTAL_CXX0X__) || __cplusplus >= 201103L
-    RawSocketReceiver& operator=(const RawSocketReceiver& other);
-    RawSocketReceiver(RawSocketReceiver &&other) noexcept;
-    RawSocketReceiver const & operator=(RawSocketReceiver &&other);
-#endif
-
-    ppl7::IPAddress SourceIP;
-    unsigned char*  buffer;
-    int             buflen;
-    int             sd;
-    unsigned short  SourcePort;
-#ifdef __FreeBSD__
-    bool useZeroCopyBuffer;
-#endif
-
 public:
     class Counter {
     public:
@@ -54,6 +38,17 @@ public:
         double    rtt_total, rtt_min, rtt_max;
     };
 
+private:
+    ppl7::IPAddress SourceIP;
+    unsigned char*  buffer;
+    int             buflen;
+    int             sd;
+    unsigned short  SourcePort;
+#ifdef __FreeBSD__
+    bool useZeroCopyBuffer;
+#endif
+
+public:
     RawSocketReceiver();
     ~RawSocketReceiver();
     void initInterface(const ppl7::String& Device);

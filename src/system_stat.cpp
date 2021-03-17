@@ -45,8 +45,9 @@
 static void sampleCpuUsage(SystemStat::Cpu& stat)
 {
     FILE* fp = fopen("/proc/stat", "r");
-    if (fscanf(fp, "%*s %d %d %d %d %d", &stat.user, &stat.nice, &stat.system, &stat.idle, &stat.iowait) != 5) {
-        // ignore
+    if (5 != fscanf(fp, "%*s %d %d %d %d %d", &stat.user, &stat.nice, &stat.system, &stat.idle, &stat.iowait)) {
+
+        fclose(fp);
     }
     fclose(fp);
 }

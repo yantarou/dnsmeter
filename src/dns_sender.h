@@ -29,13 +29,6 @@
 #define __dnsmeter_dns_sender_h
 
 class DNSSender {
-private:
-#if defined(__GXX_EXPERIMENTAL_CXX0X__) || __cplusplus >= 201103L
-    DNSSender& operator=(const DNSSender& other);
-    DNSSender(DNSSender &&other) noexcept;
-    DNSSender const & operator=(DNSSender &&other);
-#endif
-
 public:
     class Results {
     public:

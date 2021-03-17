@@ -1,7 +1,5 @@
 # dnsmeter
 
-[![Build Status](https://travis-ci.com/DNS-OARC/dnsmeter.svg?branch=develop)](https://travis-ci.com/DNS-OARC/dnsmeter) [![Total alerts](https://img.shields.io/lgtm/alerts/g/DNS-OARC/dnsmeter.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/DNS-OARC/dnsmeter/alerts/) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=dns-oarc%3Adnsmeter&metric=bugs)](https://sonarcloud.io/dashboard?id=dns-oarc%3Adnsmeter) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=dns-oarc%3Adnsmeter&metric=security_rating)](https://sonarcloud.io/dashboard?id=dns-oarc%3Adnsmeter)
-
 `dnsmeter` is a tool for testing performance of a nameserver and the
 infrastructure around it. It generates DNS queries and sends them via UDP
 to a target nameserver and counts the answers.
@@ -31,21 +29,21 @@ on OpenSSL, bzip2, IDN2 (or IDN1) library and zlib.
 
 To install the dependencies under Debian/Ubuntu:
 ```
-apt-get install -y libssl-dev libbz2-dev libidn2-dev zlib1g-dev libpcap-dev libpcre3-dev gettext
+apt-get install -y libssl-dev libbz2-dev libidn2-dev zlib1g-dev libpcap-dev libpcre3-dev
 ```
 
 NOTE: If your system does not have `libidn2-dev`, please use `libidn11-dev` instead.
 
 To install the dependencies under CentOS (with EPEL enabled):
 ```
-yum install -y openssl-devel bzip2-devel libidn2-devel zlib-devel libpcap-devel pcre-devel gettext-devel
+yum install -y openssl-devel bzip2-devel libidn2-devel zlib-devel libpcap-devel pcre-devel
 ```
 
 NOTE: If your using openSUSE/SLE then bzip2's package is `libbz2-devel`.
 
 To install the dependencies under FreeBSD 10+ using `pkg`:
 ```
-pkg install -y openssl libidn2 libpcap pcre gettext
+pkg install -y openssl libidn2 libpcap pcre
 ```
 
 ## Building from source tarball
