@@ -159,6 +159,7 @@ void DNSSenderThread::sendPacket()
                     pkt.randomSourcePort();
                 }
             }
+            pkt.randomSourcePort();
             pkt.setDnsId(getQueryTimestamp());
             ssize_t n = Socket.send(pkt);
             if (n > 0 && (size_t)n == pkt.size()) {
@@ -182,8 +183,12 @@ void DNSSenderThread::run()
 {
     if (!payload)
         throw ppl7::NullPointerException("payload not set!");
+    // if (!spoofingEnabled) {
+    //     pkt.setSource(sourceip, 0x4567);
+    // }
     if (!spoofingEnabled) {
         pkt.setSource(sourceip, 0x4567);
+        pkt.randomSourcePort();
     }
     dnsseccounter        = 0;
     counter_packets_send = 0;
